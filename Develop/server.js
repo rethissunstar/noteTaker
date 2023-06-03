@@ -32,9 +32,18 @@ app.get('/api/db', (req, res) =>{
     console.log('this was gotten');
 })
 
-app.post('/notes', (req,res) => {
-   return res.json(db);
-   console.log(db);
+app.post('/api/db', (req,res) => {
+    console.log('post was successful');
+    let response = `${JSON.stringify(req.body)}`;
+    console.log(response);
+    console.log(db);
+   //return req.body;
+   oldNotes = `${JSON.stringify(db[0])}`;
+   collNotes = response + ',' + oldNotes;
+   console.log(oldNotes);
+   let myArray = [collNotes]
+   console.log(myArray);
+    fs.writeFile('./db/db.json', '['+myArray+']');
 })
 
 app.listen(PORT, () =>{
