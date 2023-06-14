@@ -33,7 +33,15 @@ app.get('/api/db', (req, res) =>{
 })
 
 app.post('/api/db', (req,res) => {
-    console.log('post was successful');
+    let newnote= {
+        title: req.body.title,
+        text: req.body.text
+    }
+    console.log(newnote);
+    // fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    //     if (err) throw err;
+
+    //         console.log('post was successful');
     let response = `${JSON.stringify(req.body)}`;
     console.log(response);
     console.log(db);
@@ -41,10 +49,26 @@ app.post('/api/db', (req,res) => {
    oldNotes = `${JSON.stringify(db[0])}`;
    collNotes = response + ',' + oldNotes;
    console.log(oldNotes);
-   let myArray = [collNotes]
+   let myArray = [collNotes];
    console.log(myArray);
-    fs.writeFile('./db/db.json', '['+myArray+']');
-})
+    fs.writeFile('./db/db.json', "["+myArray+"]");
+
+
+        // const notes = JSON.parse(data);
+        // console.log(notes);
+        // console.log(db);
+        // notes.push(newnote);
+        // fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
+        //     if (err) throw err
+        //     res.send(notes);
+        })
+   // })
+
+
+
+
+
+//})
 
 app.listen(PORT, () =>{
     console.log(`server listening on PORT: ${PORT}`);
