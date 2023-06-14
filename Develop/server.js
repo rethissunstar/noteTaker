@@ -18,7 +18,7 @@ const PATH = require('path');
 // });
 
 app.get('/', (req,res) =>{
-    res.sendFile(PATH.join(__dirname, 'index.html'));
+    res.sendFile(PATH.join(__dirname, '/public/index.html'));
 });
 
 app.get('/notes', (req, res) => {
