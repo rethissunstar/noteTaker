@@ -17,3 +17,6 @@
 
  ## Github link: 
 https://github.com/"https://github.com/rethissunstar"
+
+## Picture of Deployed app
+<img src = "./heroku deployed screen.png"> <img>
